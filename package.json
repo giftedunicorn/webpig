@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "pm2-start": "pm2 start",
+    "pm2-reload": "pm2 reload all",
+    "pm2-logrotate": "pm2 install pm2-logrotate",
     "server": "node ./server/index.js"
   },
   "dependencies": {
