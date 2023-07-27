@@ -1,0 +1,27 @@
+{
+  "name": "webpig",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "server": "node ./server/index.js"
+  },
+  "dependencies": {
+    "agora-rtc-sdk-ng": "^4.18.2",
+    "antd": "^5.7.3",
+    "body-parser": "^1.20.2",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.12",
+    "express": "^4.18.2",
+    "loglevel": "^1.8.1",
+    "next": "13.4.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "ws": "^8.13.0"
+  }
+}
