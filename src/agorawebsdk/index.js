@@ -1,5 +1,5 @@
 import AgoraRTC from 'agora-rtc-sdk-ng';
-import {APPID} from '../utils/const';
+import * as log from 'loglevel';
 
 AgoraRTC.setLogLevel(4);
 const currentVideoCodec = 'h264';
@@ -14,10 +14,7 @@ const rtc = {
 async function initRtc() {
     log.debug('initRtc Invoked');
 
-    rtc.client = new AgoraRTC.createClient({
-        mode: currentRtcMode, codec:
-    currentVideoCodec,
-    });
+    rtc.client = new AgoraRTC.createClient({ mode: currentRtcMode, codec: currentVideoCodec });
 
     rtc.client.on('user-published', async (user, mediaType) => {
     // Subscribe to the remote user when the SDK triggers the "user-published" event
@@ -50,7 +47,7 @@ async function initRtc() {
     });
 }
 
-async function joinChannel(channel, token, agoraUid) {
+async function joinChannel(appId, channel, token, agoraUid) {
     log.debug('joinChannel Invoked');
 
     log.debug('CHANNEL NAME:', channel);
@@ -60,7 +57,7 @@ async function joinChannel(channel, token, agoraUid) {
     // agora uid must be int
     const parsedUid = parseInt(agoraUid);
 
-    await rtc.client.join(APPID, channel, token, parsedUid);
+    await rtc.client.join(appId, channel, token, parsedUid);
 
     log.debug('join success!');
 }
@@ -96,10 +93,11 @@ async function destroyRtc() {
     rtc.client = null;
 }
 
-export async function join() {
+export async function join(channelName, token, uid) {
     log.debug('join Invoked');
+    // everything in this branch only runs in the browser
     await initRtc();
-    await joinChannel('iot123', null, null);
+    await joinChannel(channelName, token, uid);
     await publishMedia();
 }
 
