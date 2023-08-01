@@ -464,11 +464,11 @@ function App() {
                         autoPlay
                         style={{width: 640, height: 480}}
                     />
-                    <video
+{/*                     <video
                         id="localPlayer"
                         autoPlay
                         style={{width: 640, height: 480}}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>

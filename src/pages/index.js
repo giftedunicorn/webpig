@@ -75,7 +75,7 @@ function App() {
 
     return (
         <div className={styles.App}>
-            <div className={styles["App-header"]}>
+            <div className={styles["App-container"]}>
                 {renderHelper()}
             </div>
         </div>
