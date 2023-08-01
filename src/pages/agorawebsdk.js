@@ -5,12 +5,8 @@ import {
 } from 'antd';
 import * as log from 'loglevel';
 import styles from '@/styles/App.module.css'
-// import dynamic from "next/dynamic";
-// const AgoraWebSdk = dynamic(() => import('../agorawebsdk'), { ssr: false });
 
 const {Title, Paragraph} = Typography;
-
-// console.log(AgoraWebSdk)
 
 function App() {
     const [appId, setAppId] = useState('');
